@@ -5,8 +5,11 @@ import os
 
 class SrtTranslator:
 
-    translator = GoogleTranslator(source="en", target="et")
-
+    def __init__(self, source_language, target_language):
+        self.translator = GoogleTranslator(
+            source=source_language,
+            target=target_language)
+    
     def translateFile(self, file_path, output_path, folder_path):
         files_subtitles = pysrt.open(file_path)
 
